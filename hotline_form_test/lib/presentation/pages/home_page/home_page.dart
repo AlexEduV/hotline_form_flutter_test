@@ -19,10 +19,6 @@ class _MyHomePageState extends State<MyHomePage> {
   final TextEditingController phoneNumberController = TextEditingController();
 
   bool isLoading = false;
-
-  bool isNameEmpty = true;
-
-
   bool isSubmitEnabled = false;
 
   @override
@@ -107,6 +103,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _onSubmit() {
 
+    //todo: validate all inputs here:
+    
+
+    //todo: send mock request here:
     setState(() {
       isLoading = true;
     });
