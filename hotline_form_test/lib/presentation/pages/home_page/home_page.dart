@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   controller: phoneNumberController,
               ),
 
-              Gap(16.0),
+              Gap(32.0),
 
               CircularProgressIndicator(),
 

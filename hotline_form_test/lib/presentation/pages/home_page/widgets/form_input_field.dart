@@ -30,7 +30,7 @@ class FormInputField extends StatelessWidget {
           label: Text(
             hintText,
             style: TextStyle(
-              color: Colors.grey,
+              color: Colors.black54,
             ),
           ),
           counterText: "",
