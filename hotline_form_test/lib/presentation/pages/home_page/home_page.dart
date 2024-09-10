@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
 
-              Gap(8.0),
+              Gap(4.0),
 
               Text(
                 'Будь ласка, введіть необхідну інформацію та натисніть \'Надіслати\'.',
@@ -76,13 +76,17 @@ class _MyHomePageState extends State<MyHomePage> {
 
               SplashButton(
                 text: 'Надіслати',
-                onPressed: () {},
-              )
+                onPressed: _onSubmit,
+              ),
 
             ],
           ),
         ),
       ),
     );
+  }
+
+  void _onSubmit() {
+
   }
 }
