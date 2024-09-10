@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:hotline_form_test/domain/exception/base_exception.dart';
-import 'package:hotline_form_test/domain/usecases/validation/validate_name_usecase.dart';
 import 'package:hotline_form_test/presentation/pages/home_page/widgets/form_input_field.dart';
 import 'package:hotline_form_test/presentation/pages/home_page/widgets/splash_button.dart';
 
@@ -127,7 +125,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
     bool result = false;
 
-    if (!nameController.text.isEmpty && !emailController.text.isEmpty && !phoneNumberController.text.isEmpty) {
+    if (!nameController.text.isEmpty
+        && !emailController.text.isEmpty
+        && !phoneNumberController.text.isEmpty
+    ) {
       result = true;
     }
 
