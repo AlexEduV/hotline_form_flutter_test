@@ -21,6 +21,8 @@ class _MyHomePageState extends State<MyHomePage> {
   bool isLoading = false;
   bool isSubmitEnabled = false;
 
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
 
@@ -52,32 +54,68 @@ class _MyHomePageState extends State<MyHomePage> {
 
               Gap(16.0),
 
-              FormInputField(
-                hintText: 'Ім\'я:',
-                controller: nameController,
-                onChanged: (value) {
-                 _isSubmitEnabled();
-                },
-              ),
+              Form(
+                key: _formKey,
+                child: Column(
+                  children: [
 
-              Gap(8.0),
+                    FormInputField(
+                      hintText: 'Ім\'я:',
+                      controller: nameController,
+                      onChanged: (value) {
+                       _isSubmitEnabled();
+                      },
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'This Field is required.';
+                        }
+                        else if (value.length < 2) {
+                          return 'The name should be at least 2 characters.';
+                        }
+                        return null;
+                      },
+                    ),
 
-              FormInputField(
-                hintText: 'Електронна Пошта:',
-                controller: emailController,
-                onChanged: (value) {
-                  _isSubmitEnabled();
-                },
-              ),
+                    Gap(8.0),
 
-              Gap(8.0),
+                    FormInputField(
+                      hintText: 'Електронна Пошта:',
+                      controller: emailController,
+                      onChanged: (value) {
+                        _isSubmitEnabled();
+                      },
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'This Field is required.';
+                        }
+                        else if (value.length < 2) {
+                          return 'The email should be at least 2 characters.';
+                        }
+                        return null;
+                      },
+                    ),
 
-              FormInputField(
-                hintText: 'Номер Телефону:',
-                controller: phoneNumberController,
-                onChanged: (value) {
-                  _isSubmitEnabled();
-                },
+                    Gap(8.0),
+
+                    FormInputField(
+                      hintText: 'Номер Телефону:',
+                      controller: phoneNumberController,
+                      onChanged: (value) {
+                        _isSubmitEnabled();
+                      },
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'This Field is required.';
+                        }
+                        else if (value.length < 2) {
+                          return 'The phone should be at least 2 characters.';
+                        }
+                        return null;
+                      },
+                    ),
+
+                  ],
+                ),
               ),
 
               Gap(32.0),
@@ -103,21 +141,23 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _onSubmit() {
 
-    //todo: validate all inputs here:
-    
+    if (_formKey.currentState!.validate()) {
 
-    //todo: send mock request here:
-    setState(() {
-      isLoading = true;
-    });
-
-    Future.delayed(Duration(seconds: 3), () {
-
+      //todo: send mock request here:
       setState(() {
-        isLoading = false;
+        isLoading = true;
       });
 
-    });
+      Future.delayed(Duration(seconds: 3), () {
+
+        setState(() {
+          isLoading = false;
+        });
+
+      });
+
+    }
+
 
   }
 
