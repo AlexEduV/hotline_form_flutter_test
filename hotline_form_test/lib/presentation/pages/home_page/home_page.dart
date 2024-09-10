@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:hotline_form_test/data/services/dio_client.dart';
 import 'package:hotline_form_test/domain/usecases/validation/validate_email_usecase.dart';
 import 'package:hotline_form_test/domain/usecases/validation/validate_name_usecase.dart';
 import 'package:hotline_form_test/domain/usecases/validation/validate_phone_usecase.dart';
@@ -127,21 +128,18 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  void _onSubmit() {
+  void _onSubmit() async {
 
     if (_formKey.currentState!.validate()) {
 
-      //todo: send mock request here:
       setState(() {
         isLoading = true;
       });
 
-      Future.delayed(Duration(seconds: 3), () {
+      await DioClient.sendRequest(DioClient.endPoint);
 
-        setState(() {
-          isLoading = false;
-        });
-
+      setState(() {
+        isLoading = false;
       });
 
     }
