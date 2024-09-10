@@ -69,8 +69,8 @@ class _MyHomePageState extends State<MyHomePage> {
                        _isSubmitEnabled();
                       },
                       validator: (value) {
-                        validateName(value);
-                        return null;
+                        return validateName(value);
+
                       },
                     ),
 
@@ -83,8 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         _isSubmitEnabled();
                       },
                       validator: (value) {
-                        validateEmail(value);
-                        return null;
+                        return validateEmail(value);
                       },
                     ),
 
@@ -97,8 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         _isSubmitEnabled();
                       },
                       validator: (value) {
-                        validatePhone(value);
-                        return null;
+                        return validatePhone(value);
                       },
                     ),
 

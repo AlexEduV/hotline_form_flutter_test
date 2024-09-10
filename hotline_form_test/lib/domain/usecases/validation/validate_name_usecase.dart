@@ -1,10 +1,13 @@
 String? validateName(String? name) {
 
   if (name == null || name.isEmpty) {
-    return 'This Field is required.';
+    return 'Це поле не може бути пусте.';
   }
   else if (name.length < 2) {
-    return 'The Name should be at least 2 characters.';
+    return 'Ім\'я має містити не менше 2 символів.';
+  }
+  else if (name.length > 20) {
+    return 'Ім\'я занадто довге.';
   }
 
   return null;
