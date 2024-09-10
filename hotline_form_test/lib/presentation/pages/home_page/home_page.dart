@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:hotline_form_test/domain/exception/base_exception.dart';
+import 'package:hotline_form_test/domain/usecases/validation/validate_name_usecase.dart';
 import 'package:hotline_form_test/presentation/pages/home_page/widgets/form_input_field.dart';
 import 'package:hotline_form_test/presentation/pages/home_page/widgets/splash_button.dart';
 
@@ -17,6 +19,8 @@ class _MyHomePageState extends State<MyHomePage> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneNumberController = TextEditingController();
+
+  String? nameErrorText;
 
   bool isLoading = false;
 

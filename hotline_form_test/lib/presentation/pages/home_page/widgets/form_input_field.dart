@@ -8,15 +8,19 @@ class FormInputField extends StatelessWidget {
   final Widget? suffixIcon;
   final bool isPasswordField;
   final bool isObscureText;
+  final ValueChanged<String>? onChanged;
+  final String? errorText;
 
   const FormInputField({
+    super.key,
     required this.hintText,
     required this.controller,
     this.maxLength = 20,
     this.suffixIcon,
-    this.isPasswordField=false,
-    this.isObscureText=false,
-    super.key,
+    this.isPasswordField = false,
+    this.isObscureText = false,
+    this.onChanged,
+    this.errorText,
   });
 
   @override
@@ -36,6 +40,15 @@ class FormInputField extends StatelessWidget {
           counterText: "",
           suffixIcon: suffixIcon,
         ),
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'This Field is required.';
+          }
+          else if (value.length < 2) {
+            return 'The name should be at least 2 characters.';
+          }
+          return null;
+        },
         maxLength: maxLength,
         textInputAction: TextInputAction.next,
         controller: controller,
