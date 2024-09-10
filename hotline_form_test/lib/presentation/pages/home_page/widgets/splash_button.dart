@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hotline_form_test/presentation/pages/common/globals.dart';
 
 class SplashButton extends StatelessWidget {
 
@@ -17,6 +18,7 @@ class SplashButton extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         elevation: 1,
+        backgroundColor: mainColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(
             16.0,

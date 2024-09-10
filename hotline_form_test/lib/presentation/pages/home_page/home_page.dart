@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:hotline_form_test/presentation/pages/home_page/widgets/form_input_field.dart';
 import 'package:hotline_form_test/presentation/pages/home_page/widgets/splash_button.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -12,6 +13,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController phoneNumberController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
 
               Text(
-                'Test Form',
+                'Тестова Форма',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w500,
@@ -38,22 +43,39 @@ class _MyHomePageState extends State<MyHomePage> {
               Gap(8.0),
 
               Text(
-                'Please, enter all the necessary information and hit \'Submit\'',
+                'Будь ласка, введіть необхідну інформацію та натисніть \'Надіслати\'.',
                 textAlign: TextAlign.center,
               ),
 
-              TextFormField(),
+              Gap(16.0),
 
-              TextFormField(),
+              FormInputField(
+                hintText: 'Ім\'я:',
+                controller: nameController,
+              ),
 
-              TextFormField(),
+              Gap(8.0),
+
+              FormInputField(
+                hintText: 'Електронна Пошта:',
+                controller: emailController,
+              ),
+
+              Gap(8.0),
+
+              FormInputField(
+                  hintText: 'Номер Телефону:',
+                  controller: phoneNumberController,
+              ),
+
+              Gap(16.0),
 
               CircularProgressIndicator(),
 
               Spacer(),
 
               SplashButton(
-                text: 'Submit',
+                text: 'Надіслати',
                 onPressed: () {},
               )
 
