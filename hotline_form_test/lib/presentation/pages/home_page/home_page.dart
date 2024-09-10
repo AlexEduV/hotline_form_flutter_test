@@ -18,6 +18,8 @@ class _MyHomePageState extends State<MyHomePage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneNumberController = TextEditingController();
 
+  bool isLoading = false;
+
   @override
   Widget build(BuildContext context) {
 
@@ -70,13 +72,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
               Gap(32.0),
 
-              CircularProgressIndicator(),
+              Visibility(
+                visible: isLoading,
+                child: CircularProgressIndicator(),
+              ),
 
               Spacer(),
 
               SplashButton(
                 text: 'Надіслати',
-                onPressed: _onSubmit,
+                onPressed: !isLoading ? _onSubmit : null,
               ),
 
             ],
@@ -87,6 +92,18 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _onSubmit() {
+
+    setState(() {
+      isLoading = true;
+    });
+
+    Future.delayed(Duration(seconds: 3), () {
+
+      setState(() {
+        isLoading = false;
+      });
+
+    });
 
   }
 }

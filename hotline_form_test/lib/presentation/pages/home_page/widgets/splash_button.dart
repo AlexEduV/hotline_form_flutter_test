@@ -4,7 +4,7 @@ import 'package:hotline_form_test/presentation/pages/common/globals.dart';
 class SplashButton extends StatelessWidget {
 
   final String text;
-  final Function() onPressed;
+  final Function()? onPressed;
 
   const SplashButton({
     required this.text,
