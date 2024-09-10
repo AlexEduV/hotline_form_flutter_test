@@ -1,30 +1,13 @@
+String? validateName(String? name) {
 
-import 'package:hotline_form_test/domain/exception/base_exception.dart';
-
-void validateName(String name) {
-
-  if (name.isEmpty) {
-    throw NameEmptyException(message: 'Name cannot be empty.');
+  if (name == null || name.isEmpty) {
+    return 'This Field is required.';
+  }
+  else if (name.length < 2) {
+    return 'The Name should be at least 2 characters.';
   }
 
-  if (name.length < 2) {
-    throw NameTooShortException(message: 'Name is too short.');
-  }
+  return null;
 
-  if (name.length > 20) {
-    throw NameTooLongException(message: 'Name is too long.');
-  }
-}
-
-class NameEmptyException extends BaseException {
-  NameEmptyException({required super.message});
-}
-
-class NameTooShortException extends BaseException {
-  NameTooShortException({required super.message});
-}
-
-class NameTooLongException extends BaseException {
-  NameTooLongException({required super.message});
 }
 

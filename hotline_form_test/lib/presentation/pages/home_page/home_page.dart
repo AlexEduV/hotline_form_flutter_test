@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:hotline_form_test/domain/usecases/validation/validate_email_usecase.dart';
+import 'package:hotline_form_test/domain/usecases/validation/validate_name_usecase.dart';
+import 'package:hotline_form_test/domain/usecases/validation/validate_phone_usecase.dart';
 import 'package:hotline_form_test/presentation/pages/home_page/widgets/form_input_field.dart';
 import 'package:hotline_form_test/presentation/pages/home_page/widgets/splash_button.dart';
 
@@ -66,12 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
                        _isSubmitEnabled();
                       },
                       validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'This Field is required.';
-                        }
-                        else if (value.length < 2) {
-                          return 'The name should be at least 2 characters.';
-                        }
+                        validateName(value);
                         return null;
                       },
                     ),
@@ -85,12 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         _isSubmitEnabled();
                       },
                       validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'This Field is required.';
-                        }
-                        else if (value.length < 2) {
-                          return 'The email should be at least 2 characters.';
-                        }
+                        validateEmail(value);
                         return null;
                       },
                     ),
@@ -104,12 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         _isSubmitEnabled();
                       },
                       validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'This Field is required.';
-                        }
-                        else if (value.length < 2) {
-                          return 'The phone should be at least 2 characters.';
-                        }
+                        validatePhone(value);
                         return null;
                       },
                     ),
