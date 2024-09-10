@@ -10,6 +10,8 @@ class FormInputField extends StatelessWidget {
   final bool isObscureText;
   final ValueChanged<String>? onChanged;
   final FormFieldValidator validator;
+  final TextInputType textInputType;
+
 
   const FormInputField({
     super.key,
@@ -21,6 +23,7 @@ class FormInputField extends StatelessWidget {
     this.isPasswordField = false,
     this.isObscureText = false,
     this.onChanged,
+    this.textInputType = TextInputType.text,
   });
 
   @override
@@ -49,6 +52,7 @@ class FormInputField extends StatelessWidget {
         enableSuggestions: !isPasswordField,
         autocorrect: !isPasswordField,
         enableInteractiveSelection: isPasswordField,
+        keyboardType: textInputType,
       ),
     );
   }

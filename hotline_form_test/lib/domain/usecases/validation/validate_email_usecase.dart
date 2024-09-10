@@ -8,7 +8,7 @@ String? validateEmail(String? email) {
     return 'Це поле не може бути пусте.';
   }
   else if (!emailRegExp.hasMatch(email)) {
-    return 'Будь ласка, використайте адресу накшталт example@exmaple.com';
+    return 'Потрібна адреса накшталт example@exmaple.com';
   }
 
   return null;

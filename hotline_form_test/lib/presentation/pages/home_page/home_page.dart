@@ -85,6 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       validator: (value) {
                         return validateEmail(value);
                       },
+                      textInputType: TextInputType.emailAddress,
                     ),
 
                     Gap(8.0),
@@ -98,6 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       validator: (value) {
                         return validatePhone(value);
                       },
+                      textInputType: TextInputType.phone,
                     ),
 
                   ],
