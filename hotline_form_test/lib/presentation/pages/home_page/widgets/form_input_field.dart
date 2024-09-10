@@ -49,6 +49,7 @@ class FormInputField extends StatelessWidget {
           }
           return null;
         },
+        onChanged: onChanged,
         maxLength: maxLength,
         textInputAction: TextInputAction.next,
         controller: controller,

@@ -20,9 +20,12 @@ class _MyHomePageState extends State<MyHomePage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneNumberController = TextEditingController();
 
-  String? nameErrorText;
-
   bool isLoading = false;
+
+  bool isNameEmpty = true;
+
+
+  bool isSubmitEnabled = false;
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +61,9 @@ class _MyHomePageState extends State<MyHomePage> {
               FormInputField(
                 hintText: 'Ім\'я:',
                 controller: nameController,
+                onChanged: (value) {
+                 _isSubmitEnabled();
+                },
               ),
 
               Gap(8.0),
@@ -65,13 +71,19 @@ class _MyHomePageState extends State<MyHomePage> {
               FormInputField(
                 hintText: 'Електронна Пошта:',
                 controller: emailController,
+                onChanged: (value) {
+                  _isSubmitEnabled();
+                },
               ),
 
               Gap(8.0),
 
               FormInputField(
-                  hintText: 'Номер Телефону:',
-                  controller: phoneNumberController,
+                hintText: 'Номер Телефону:',
+                controller: phoneNumberController,
+                onChanged: (value) {
+                  _isSubmitEnabled();
+                },
               ),
 
               Gap(32.0),
@@ -85,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
               SplashButton(
                 text: 'Надіслати',
-                onPressed: !isLoading ? _onSubmit : null,
+                onPressed: !isLoading && isSubmitEnabled ? _onSubmit : null,
               ),
 
             ],
@@ -107,6 +119,20 @@ class _MyHomePageState extends State<MyHomePage> {
         isLoading = false;
       });
 
+    });
+
+  }
+
+  void _isSubmitEnabled() {
+
+    bool result = false;
+
+    if (!nameController.text.isEmpty && !emailController.text.isEmpty && !phoneNumberController.text.isEmpty) {
+      result = true;
+    }
+
+    setState(() {
+      isSubmitEnabled = result;
     });
 
   }
