@@ -163,6 +163,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
         //reset focus
         FocusScope.of(context).unfocus();
+
+        //reset button
+        setState(() {
+          isSubmitEnabled = _isSubmitEnabled();
+        });
       }
 
       setState(() {
