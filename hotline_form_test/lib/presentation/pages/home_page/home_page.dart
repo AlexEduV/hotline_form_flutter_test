@@ -135,12 +135,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _onSubmit() async {
 
+    //validate inputs
     if (_formKey.currentState!.validate()) {
 
       setState(() {
         isLoading = true;
       });
 
+      //submit form data
       final result = await DioClient.submitForm(
         DioClient.endPoint,
         {
@@ -150,6 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
         },
       );
 
+      //show snackBar
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(result))
       );
