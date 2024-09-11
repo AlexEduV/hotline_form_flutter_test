@@ -155,9 +155,14 @@ class _MyHomePageState extends State<MyHomePage> {
       );
 
       if (result == "Форма успішно відправлена") {
+
+        //clear texts
         nameController.clear();
         emailController.clear();
         phoneNumberController.clear();
+
+        //reset focus
+        FocusScope.of(context).unfocus();
       }
 
       setState(() {
