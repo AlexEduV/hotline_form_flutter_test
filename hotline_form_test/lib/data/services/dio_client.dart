@@ -15,11 +15,12 @@ class DioClient {
     //mock api
     dioAdapter.onPost(
       endPoint,
-        (server) => server.reply(
-          200,
-          {'message': 'Success!'},
-          delay: const Duration(seconds: 3),
-        ),
+      data: formData,
+      (server) => server.reply(
+        200,
+        {'message': 'Success!'},
+        delay: const Duration(seconds: 3),
+      ),
     );
 
     try {
@@ -29,7 +30,6 @@ class DioClient {
       );
 
       if (response.statusCode == 200) {
-        debugPrint(response.data);
         return 'Форма успішно відправлена';
       }
       else {
