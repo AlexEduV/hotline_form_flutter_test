@@ -73,7 +73,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       },
                       validator: (value) {
                         return validateName(value);
-
                       },
                     ),
 
@@ -166,7 +165,6 @@ class _MyHomePageState extends State<MyHomePage> {
       });
 
     }
-
 
   }
 
