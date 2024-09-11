@@ -2,8 +2,10 @@ import 'package:dio/dio.dart';
 
 class DioClient {
 
-  static final endPoint = 'https://example.com/api/submit';
   static final Dio client = Dio();
+
+  //endpoints
+  static final endPoint = 'https://example.com/api/submit';
 
   static Future<String> submitForm(String path, Map<String, dynamic> formData) async {
 
@@ -38,6 +40,3 @@ class DioClient {
   }
 
 }
-
-
-
