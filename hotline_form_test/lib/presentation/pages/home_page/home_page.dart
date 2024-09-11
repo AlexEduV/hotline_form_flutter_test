@@ -66,8 +66,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     FormInputField(
                       hintText: 'Ім\'я:',
                       controller: nameController,
-                      onChanged: (value) {
-                       _isSubmitEnabled();
+                      onChanged: (_) {
+                        setState(() {
+                          isSubmitEnabled = _isSubmitEnabled();
+                        });
                       },
                       validator: (value) {
                         return validateName(value);
@@ -80,8 +82,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     FormInputField(
                       hintText: 'Електронна Пошта:',
                       controller: emailController,
-                      onChanged: (value) {
-                        _isSubmitEnabled();
+                      onChanged: (_) {
+                        setState(() {
+                          isSubmitEnabled = _isSubmitEnabled();
+                        });
                       },
                       validator: (value) {
                         return validateEmail(value);
@@ -94,8 +98,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     FormInputField(
                       hintText: 'Номер Телефону:',
                       controller: phoneNumberController,
-                      onChanged: (value) {
-                        _isSubmitEnabled();
+                      onChanged: (_) {
+                        setState(() {
+                          isSubmitEnabled = _isSubmitEnabled();
+                        });
                       },
                       validator: (value) {
                         return validatePhone(value);
@@ -136,7 +142,18 @@ class _MyHomePageState extends State<MyHomePage> {
         isLoading = true;
       });
 
-      await DioClient.sendRequest(DioClient.endPoint);
+      final result = await DioClient.submitForm(
+        DioClient.endPoint,
+        {
+          "name": nameController.text,
+          "email": emailController.text,
+          "phone": phoneNumberController.text
+        },
+      );
+
+      //todo: show a snackBar with the result
+
+      //todo: clear inputs
 
       setState(() {
         isLoading = false;
@@ -147,20 +164,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
   }
 
-  void _isSubmitEnabled() {
-
-    bool result = false;
+  bool _isSubmitEnabled() {
 
     if (!nameController.text.isEmpty
         && !emailController.text.isEmpty
         && !phoneNumberController.text.isEmpty
     ) {
-      result = true;
+      return true;
     }
 
-    setState(() {
-      isSubmitEnabled = result;
-    });
+    return false;
 
   }
 }
