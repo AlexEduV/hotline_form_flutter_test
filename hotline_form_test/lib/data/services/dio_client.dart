@@ -5,7 +5,7 @@ class DioClient {
   static final endPoint = 'https://example.com/api/submit';
   static final Dio client = Dio();
 
-  static Future<String?> submitForm(String path, Map<String, dynamic> formData) async {
+  static Future<String> submitForm(String path, Map<String, dynamic> formData) async {
 
     String result = '';
 
@@ -31,9 +31,9 @@ class DioClient {
       }
     }
 
-    await Future.delayed(Duration(seconds: 3), () {
-      return null;
-    });
+    await Future.delayed(Duration(seconds: 3), () {});
+
+    return result;
 
   }
 

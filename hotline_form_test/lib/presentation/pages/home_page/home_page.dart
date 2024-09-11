@@ -151,9 +151,15 @@ class _MyHomePageState extends State<MyHomePage> {
         },
       );
 
-      //todo: show a snackBar with the result
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(result))
+      );
 
-      //todo: clear inputs
+      if (result == "Форма успішно відправлена") {
+        nameController.clear();
+        emailController.clear();
+        phoneNumberController.clear();
+      }
 
       setState(() {
         isLoading = false;
