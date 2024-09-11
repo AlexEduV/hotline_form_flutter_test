@@ -1,41 +1,52 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:http_mock_adapter/http_mock_adapter.dart';
 
 class DioClient {
 
   static final Dio client = Dio();
+  static final dioAdapter = DioAdapter(dio: client);
 
   //endpoints
-  static final endPoint = 'https://example.com/api/submit';
+  static const endPoint = 'https://example.com/api/submit';
 
   static Future<String> submitForm(String path, Map<String, dynamic> formData) async {
 
-    String result = '';
+    //mock api
+    dioAdapter.onPost(
+      endPoint,
+        (server) => server.reply(
+          200,
+          {'message': 'Success!'},
+          delay: const Duration(seconds: 3),
+        ),
+    );
 
     try {
-      final Response response = await client.post(
+      final response = await client.post(
         path,
         data: formData,
       );
 
       if (response.statusCode == 200) {
-        result = 'Форма успішно відправлена';
+        debugPrint(response.data);
+        return 'Форма успішно відправлена';
       }
       else {
-        result = 'Помилка відправки форми - ${response.statusCode}, ${response.statusMessage}';
+        return 'Помилка відправки форми - ${response.statusCode}, ${response.statusMessage}';
       }
 
     } on DioException catch (e) {
       if (e.type == DioExceptionType.connectionTimeout) {
-        result = 'Помилка з\'єднання - Таймаут';
+        return 'Помилка з\'єднання - Таймаут';
       }
       else if (e.type == DioExceptionType.badResponse) {
-        result = 'Помилка сервера - ${e.response?.statusCode}, ${e.response?.statusMessage}';
+        return 'Помилка сервера - ${e.response?.statusCode}, ${e.response?.statusMessage}';
       }
     }
 
-    await Future.delayed(Duration(seconds: 3), () {});
-
-    return result;
+    debugPrint('returning...');
+    return '';
 
   }
 
