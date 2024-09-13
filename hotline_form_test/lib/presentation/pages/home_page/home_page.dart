@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hotline_form_test/data/services/dio_client.dart';
-import 'package:hotline_form_test/domain/usecases/validation/validate_email_usecase.dart';
-import 'package:hotline_form_test/domain/usecases/validation/validate_name_usecase.dart';
-import 'package:hotline_form_test/domain/usecases/validation/validate_phone_usecase.dart';
+import 'package:hotline_form_test/domain/usecases/validate_form_usecase.dart';
 import 'package:hotline_form_test/presentation/pages/home_page/widgets/form_input_field.dart';
 import 'package:hotline_form_test/presentation/pages/home_page/widgets/splash_button.dart';
 
