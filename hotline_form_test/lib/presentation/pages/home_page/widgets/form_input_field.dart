@@ -30,13 +30,13 @@ class FormInputField extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Padding(
-      padding: EdgeInsets.only(top: 10.0),
+      padding: const EdgeInsets.only(top: 10.0),
       child: TextFormField(
         decoration: InputDecoration(
-          border: OutlineInputBorder(),
+          border: const OutlineInputBorder(),
           label: Text(
             hintText,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.black54,
             ),
           ),
