@@ -37,14 +37,11 @@ String? validatePhone(String? phone) {
 
   if (phone == null || phone.isEmpty) {
     return 'Це поле не може бути пусте.';
-  }
-  else if (!phoneRegExp.hasMatch(phone)) {
+  } else if (!phoneRegExp.hasMatch(phone)) {
     return 'Будь ласка, введіть дійсеий номер телефону.';
-  }
-  else if (phone.length < 10) {
+  } else if (phone.length case < 10) {
     return 'Номер закороткий.';
-  }
-  else if (phone.length > 13) {
+  } else if (phone.length case > 13) {
     return 'Номер задовгий.';
   }
 

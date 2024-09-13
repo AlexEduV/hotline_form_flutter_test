@@ -65,13 +65,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       hintText: 'Ім\'я:',
                       controller: nameController,
                       onChanged: (_) {
-                        setState(() {
-                          isSubmitEnabled = _isSubmitEnabled();
-                        });
+                        setState(() => isSubmitEnabled = _isSubmitEnabled());
                       },
-                      validator: (value) {
-                        return validateName(value);
-                      },
+                      validator: (value) => validateName(value),
                     ),
 
                     const Gap(8.0),
@@ -80,13 +76,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       hintText: 'Електронна Пошта:',
                       controller: emailController,
                       onChanged: (_) {
-                        setState(() {
-                          isSubmitEnabled = _isSubmitEnabled();
-                        });
+                        setState(() => isSubmitEnabled = _isSubmitEnabled());
                       },
-                      validator: (value) {
-                        return validateEmail(value);
-                      },
+                      validator: (value) => validateEmail(value),
                       textInputType: TextInputType.emailAddress,
                     ),
 
@@ -96,13 +88,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       hintText: 'Номер Телефону:',
                       controller: phoneNumberController,
                       onChanged: (_) {
-                        setState(() {
-                          isSubmitEnabled = _isSubmitEnabled();
-                        });
+                        setState(() => isSubmitEnabled = _isSubmitEnabled());
                       },
-                      validator: (value) {
-                        return validatePhone(value);
-                      },
+                      validator: (value) => validatePhone(value),
                       textInputType: TextInputType.phone,
                     ),
 
@@ -136,9 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
     //validate inputs
     if (_formKey.currentState!.validate()) {
 
-      setState(() {
-        isLoading = true;
-      });
+      setState(() => isLoading = true);
 
       //submit form data
       final result = await DioClient.submitForm(
@@ -166,14 +152,10 @@ class _MyHomePageState extends State<MyHomePage> {
         FocusScope.of(context).unfocus();
 
         //reset button
-        setState(() {
-          isSubmitEnabled = _isSubmitEnabled();
-        });
+        setState(() => isSubmitEnabled = _isSubmitEnabled());
       }
 
-      setState(() {
-        isLoading = false;
-      });
+      setState(() => isLoading = false);
 
     }
 
