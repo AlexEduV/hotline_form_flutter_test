@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 import 'package:hotline_form_test/data/services/dio_client.dart';
 import 'package:hotline_form_test/domain/models/custom_form_data.dart';
 import 'package:hotline_form_test/domain/usecases/validate_form_usecase.dart';
@@ -48,14 +47,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
 
-              const Gap(4.0),
+              const SizedBox(height: 4.0,),
 
               const Text(
                 'Будь ласка, введіть необхідну інформацію та натисніть \'Надіслати\'.',
                 textAlign: TextAlign.center,
               ),
 
-              const Gap(16.0),
+              const SizedBox(height: 16.0,),
 
               Form(
                 key: _formKey,
@@ -71,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       validator: (value) => validateName(value),
                     ),
 
-                    const Gap(8.0),
+                    const SizedBox(height: 8.0,),
 
                     FormInputField(
                       hintText: 'Електронна Пошта:',
@@ -83,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       textInputType: TextInputType.emailAddress,
                     ),
 
-                    const Gap(8.0),
+                    const SizedBox(height: 8.0,),
 
                     FormInputField(
                       hintText: 'Номер Телефону:',
@@ -99,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
 
-              const Gap(32.0),
+              const SizedBox(height: 32.0,),
 
               Visibility(
                 visible: isLoading,
