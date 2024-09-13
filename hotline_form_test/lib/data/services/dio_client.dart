@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
 
 class DioClient {
@@ -45,7 +44,6 @@ class DioClient {
       }
     }
 
-    debugPrint('returning...');
     return '';
 
   }

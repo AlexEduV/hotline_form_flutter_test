@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             children: [
 
-              Text(
+              const Text(
                 'Тестова Форма',
                 style: TextStyle(
                   fontSize: 20,
@@ -49,14 +49,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
 
-              Gap(4.0),
+              const Gap(4.0),
 
-              Text(
+              const Text(
                 'Будь ласка, введіть необхідну інформацію та натисніть \'Надіслати\'.',
                 textAlign: TextAlign.center,
               ),
 
-              Gap(16.0),
+              const Gap(16.0),
 
               Form(
                 key: _formKey,
@@ -76,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       },
                     ),
 
-                    Gap(8.0),
+                    const Gap(8.0),
 
                     FormInputField(
                       hintText: 'Електронна Пошта:',
@@ -92,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       textInputType: TextInputType.emailAddress,
                     ),
 
-                    Gap(8.0),
+                    const Gap(8.0),
 
                     FormInputField(
                       hintText: 'Номер Телефону:',
@@ -112,14 +112,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
 
-              Gap(32.0),
+              const Gap(32.0),
 
               Visibility(
                 visible: isLoading,
-                child: CircularProgressIndicator(),
+                child: const CircularProgressIndicator(),
               ),
 
-              Spacer(),
+              const Spacer(),
 
               SplashButton(
                 text: 'Надіслати',
@@ -183,9 +183,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   bool _isSubmitEnabled() {
 
-    if (!nameController.text.isEmpty
-        && !emailController.text.isEmpty
-        && !phoneNumberController.text.isEmpty
+    if (nameController.text.isNotEmpty
+        && emailController.text.isNotEmpty
+        && phoneNumberController.text.isNotEmpty
     ) {
       return true;
     }
