@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hotline_form_test/presentation/pages/common/globals.dart';
 import 'package:hotline_form_test/presentation/theme/theme.dart';
 
 class SplashButton extends StatelessWidget {

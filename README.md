@@ -1,16 +1,24 @@
-# hotline_form_test
+# hotline_form
 
-A new Flutter project.
+A Login Form app for Hotline, the position of Middle Flutter Engineer.
 
-## Getting Started
+## 🚀 **Features**
 
-This project is a starting point for a Flutter application.
+- A beautiful UI
+- Rest APIs Integration
+- User Input Validation
+- clean architecture, with custom components and separation of concerns
 
-A few resources to get you started if this is your first Flutter project:
+## 🛠️ **Technologies Used**
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **Frontend:** Flutter, Dart
+- **State Management:** setState
+- **Backend:** Dio, Rest APIs, with Mock requests
+- **Navigation:** Navigator v2.0
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🏗️ **Architecture**
+
+The app follows **Clean Architecture**, ensuring separation of concerns:
+- `data`- Rest APIs implementation
+- `domain` - model classes
+- `presentation` - UI and Presentation
